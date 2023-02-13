@@ -39,32 +39,26 @@ public class MySQLAdsDao implements Ads {
     }
 
     //    Note:  Added for categories task/EV
-    public List<Ad> selectAllCat() {
-        PreparedStatement stmt = null;
-        try {
-            stmt = connection.prepareStatement("SELECT name FROM categories");
-            ResultSet rs = stmt.executeQuery();
-            return createAdsFromResults(rs);
-        } catch (SQLException e) {
-            throw new RuntimeException("Error retrieving all categories.", e);
-        }
-    }
+//    public List<Ad> selectAllCat() {
+//        PreparedStatement stmt = null;
+//        try {
+//            stmt = connection.prepareStatement("SELECT name FROM categories");
+//            ResultSet rs = stmt.executeQuery();
+//            return createAdsFromResults(rs);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error retrieving all categories.", e);
+//        }
+//    }
 
     @Override
     public Long insert(Ad ad) {
         try {
             String insertQuery = "INSERT INTO ads(user_id, title, description) VALUES (?, ?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
-            String insertQuery2 = "INSERT INTO categories(name) VALUES (?)";
-            PreparedStatement stmt2 = connection.prepareStatement(insertQuery2, Statement.RETURN_GENERATED_KEYS);
-//            stmt 1
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
             stmt.executeUpdate();
-//            stmt 2
-            stmt.setLong(1, ad.getUserId());
-
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
             return rs.getLong(1);

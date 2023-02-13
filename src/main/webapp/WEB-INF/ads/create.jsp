@@ -17,10 +17,22 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" class="form-control" type="text"></textarea>
             </div>
-<%--            <div class="form-group">--%>
-<%--                <label for="category">Description</label>--%>
-<%--                <textarea id="category" name="category" class="form-control" type="text"></textarea>--%>
-<%--            </div>--%>
+            <div class="form-group">
+                <input type="checkbox" id="pet" name="categories" value="Pet">
+                <label for="Pet"> Pet </label><br>
+                <input type="checkbox" id="animal" name="categories" value="Animal">
+                <label for="Animal"> Animal </label><br>
+                <input type="checkbox" id="dog" name="categories" value="Dog">
+                <label for="Dog"> Dog </label><br>
+                <input type="checkbox" id="tool" name="categories" value="Tool">
+                <label for="Tool"> Tool </label><br>
+                <input type="checkbox" id="truck" name="categories" value="Truck">
+                <label for="Truck"> Truck </label><br>
+                <input type="checkbox" id="car" name="categories" value="Car">
+                <label for="Car"> Car </label><br>
+                <input type="checkbox" id="furniture" name="categories" value="Furniture">
+                <label for="Furniture"> Furniture </label><br>
+            </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>

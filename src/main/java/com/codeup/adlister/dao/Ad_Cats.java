@@ -9,6 +9,6 @@ public interface Ad_Cats {
     // get a list of all the ad_cat
     List<Ad> all();
     // insert a new ad and return the new ad's id
-    Long insert(long id, long cat);
+    void insert(long id, long cat);
 
 }

@@ -35,7 +35,7 @@ public class MySQLAd_CatDao implements Ad_Cats {
     }
 
     @Override
-    public Long insert(long ad_id, long ad_cat) {
+    public void insert(long ad_id, long ad_cat) {
         System.out.println("ad_id passed argument = " + ad_id);
         System.out.println("ad_cat = " + ad_cat);
         try {
@@ -44,9 +44,9 @@ public class MySQLAd_CatDao implements Ad_Cats {
             stmt.setLong(1, ad_id);
             stmt.setLong(2, ad_cat);
             stmt.executeUpdate();
-            ResultSet rs = stmt.getGeneratedKeys();
-            rs.next();
-            return rs.getLong(1);
+//            ResultSet rs = stmt.getGeneratedKeys();
+//            rs.next();
+//            return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad_cat.", e);
         }

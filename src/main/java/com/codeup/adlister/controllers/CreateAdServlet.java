@@ -55,12 +55,12 @@ public class CreateAdServlet extends HttpServlet {
 
         System.out.println("ad.getId() Above for loop = " + ad.getId());
 
-        Ad_Cats getAdCatsDao = DaoFactory.getAd_CatsDao();
+//        Ad_Cats getAdCatsDao = DaoFactory.getAd_CatsDao();
 
         for (String checkBox : catCheckBox) {
             System.out.println("catCheckBox[i] = " + checkBox);
             System.out.println("adId = " + adId);
-            getAdCatsDao.insert(adId, Long.parseLong(checkBox));
+            DaoFactory.getAd_CatsDao().insert(adId, Long.parseLong(checkBox));
         }
 
 //        Note: DAO for ad_cat?

@@ -16,19 +16,19 @@ import java.io.IOException;
 
 @WebServlet(name = "AdShowServlet", urlPatterns = "/adshow")
 public class AdShowServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        req.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(req, resp);
-
-        String id = req.getAttribute();
-
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        resp.sendRedirect("/adshow");
-    }
+//    @Override
+//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//
+//        req.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(req, resp);
+//
+//        String id = req.getAttribute();
+//
+//
+//    }
+//
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//
+//        resp.sendRedirect("/adshow");
+//    }
 }

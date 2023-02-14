@@ -49,7 +49,12 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
         }
+
+
     }
+//    catch (SQLException e) {
+//        throw new RuntimeException("Error creating new user", e);
+//    }
 
     private User extractUser(ResultSet rs) throws SQLException {
         if (! rs.next()) {

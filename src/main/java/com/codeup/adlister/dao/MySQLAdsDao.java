@@ -38,6 +38,18 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    //    Note:  Added for categories task/EV
+//    public List<Ad> selectAllCat() {
+//        PreparedStatement stmt = null;
+//        try {
+//            stmt = connection.prepareStatement("SELECT name FROM categories");
+//            ResultSet rs = stmt.executeQuery();
+//            return createAdsFromResults(rs);
+//        } catch (SQLException e) {
+//            throw new RuntimeException("Error retrieving all categories.", e);
+//        }
+//    }
+
     @Override
     public Long insert(Ad ad) {
         try {

@@ -9,6 +9,8 @@ public class MySQLAd_CatDao implements Ad_Cat {
 
     private Connection connection = null;
 
+
+
     @Override
     public List<Ad> all() {
         return null;

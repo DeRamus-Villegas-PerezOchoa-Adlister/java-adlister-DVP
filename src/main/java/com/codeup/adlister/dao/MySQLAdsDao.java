@@ -96,7 +96,7 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public List<Ad> searchForAds(String searched_ad) {
-        String query = "SELECT * FROM ads WHERE title LIKE ?";
+        String query = "SELECT * FROM ads WHERE title LIKE %?%";
         try {
             PreparedStatement stmt = connection.prepareStatement(query);
             stmt.setString(1, searched_ad);
@@ -119,6 +119,22 @@ public class MySQLAdsDao implements Ads {
             return true;
         } catch (SQLException e) {
             throw new RuntimeException("Error deleting an ad.", e);
+        }
+    }
+
+    @Override
+    public void update(Ad ad) {
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE ads SET title = ?, description = ? WHERE id= ?"
+            );
+            statement.setString(1, ad.getTitle());
+            statement.setString(2, ad.getDescription());
+            statement.setLong(3, ad.getId());
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            throw new RuntimeException("Error replacing an ad.", e);
         }
     }
 }

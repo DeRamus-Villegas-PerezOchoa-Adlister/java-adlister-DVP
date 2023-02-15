@@ -11,17 +11,14 @@
 
 <div class="container">
     <h1>Here Are all the ads!</h1>
-
 <%--Your ads index page should contain links to each individual ad page.--%>
-
     <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-            <form action="/adshow" method="post">
-                <input type="submit" class="btn" value="See More Details">
-            </form>
-        </div>
+        <a href="${pageContext.request.contextPath}/adshow/?adId=${ad.id}">
+            <div class="col-md-6">
+                <h2>${ad.title}</h2>
+                <p>${ad.description}</p>
+            </div>
+        </a>
     </c:forEach>
 </div>
 

@@ -33,6 +33,17 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+    @Override
+    public User findUserById(int userId) {
+        String query = "SELECT * FROM users WHERE id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setInt(1, userId);
+            return extractUser(stmt.executeQuery());
+        } catch (SQLException e) {
+            throw new RuntimeException("Error getting user by Id", e);
+        }
+    }
 
     @Override
     public Long insert(User user) {

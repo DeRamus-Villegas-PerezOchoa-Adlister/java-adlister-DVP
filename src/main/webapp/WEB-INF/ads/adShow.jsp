@@ -5,9 +5,6 @@
   Time: 2:41 PM
   To change this template use File | Settings | File Templates.
 --%>
-
-
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -27,7 +24,7 @@
         <p>${ad.description}</p>
     </div>
     <div class="container">
-        <p>Posted by ${username}. Contact me about this item at: ${email}</p>
+        <p>Posted by ${user.username}. Contact me about this item at: ${user.email}</p>
     </div>
 </div>
 </body>

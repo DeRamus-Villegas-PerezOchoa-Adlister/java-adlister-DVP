@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -66,6 +67,21 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    public List<Ad> findAdByUserName(String username) {
+        System.out.println("id = " + username);
+        String query = "SELECT * from ads WHERE user_id IN (SELECT id from users WHERE username LIKE ?)";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return createAdsFromResults(rs);
+        } catch (SQLException e){
+            throw new RuntimeException("Error getting ad by Id", e);
+        }
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
@@ -112,6 +128,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error deleting an ad.", e);
         }
     }
+
+
 
 
 }

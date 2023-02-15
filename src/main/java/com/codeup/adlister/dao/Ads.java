@@ -13,4 +13,6 @@ public interface Ads {
 //    List<Ad> searchIndAd(String searched_ad);
 
     List<Ad> searchForAds(String searched_ad);
+
+    boolean delete(long id);
 }

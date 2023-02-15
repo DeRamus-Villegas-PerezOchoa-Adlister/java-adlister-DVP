@@ -39,8 +39,8 @@ CREATE TABLE ad_category (
                              FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
-ALTER TABLE users
-    ADD UNIQUE (username);
+# ALTER TABLE users
+#     ADD UNIQUE (username);
 
 
 

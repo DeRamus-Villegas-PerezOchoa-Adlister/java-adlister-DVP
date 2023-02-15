@@ -1,5 +1,6 @@
 package com.codeup.adlister.controllers;
 
+import com.codeup.adlister.dao.Ad_Cats;
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.models.Ad;
 import com.codeup.adlister.models.Ad_Cat;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Arrays;
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
@@ -25,32 +27,46 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
+        String[] catCheckBox = request.getParameterValues("categories");
 
-//        String title = request.getParameter("title");
-//        if (title == null) title = "";
-//
-//        String description =  request.getParameter("description");
-//        if (description == null) description = "";
-
+        for (String checkBox : catCheckBox) {
+            System.out.println("catCheckBox[i] under declaration = " + checkBox);
+        }
 
         Ad ad = new Ad(
             user.getId(),
-//            title,
-//            description
             request.getParameter("title"),
             request.getParameter("description")
         );
 
+//        System.out.println("user.getId() = " + user.getId());
+//        System.out.println("ad.getId() = " + ad.getId());
+//        System.out.println("ad.getTitle() = " + ad.getTitle());
+//        System.out.println("ad.getDescription() = " + ad.getDescription());
+
+        long adId = DaoFactory.getAdsDao().insert(ad);
+        System.out.println("adId = " + adId);
 
 
-        Ad_Cat ad_cat = new Ad_Cat(
-                user.getId(),
-                request.getParameterValues("categories")
-        );
+//        Ad_Cat ad_cat = new Ad_Cat(
+//                ad.getId(),
+//                request.getParameterValues("categories")
+//        );
+
+        System.out.println("ad.getId() Above for loop = " + ad.getId());
+
+//        Ad_Cats getAdCatsDao = DaoFactory.getAd_CatsDao();
+
+        for (String checkBox : catCheckBox) {
+            System.out.println("catCheckBox[i] = " + checkBox);
+            System.out.println("adId = " + adId);
+            DaoFactory.getAd_CatsDao().insert(adId, Long.parseLong(checkBox));
+        }
 
 //        Note: DAO for ad_cat?
 
-        DaoFactory.getAdsDao().insert(ad);
+//        DaoFactory.getAd_CatsDao().insert(ad_cat);
+
         response.sendRedirect("/ads");
     }
 }

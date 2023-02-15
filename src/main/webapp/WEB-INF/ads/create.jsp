@@ -11,26 +11,26 @@
         <form action="${pageContext.request.contextPath}/ads/create" method="post">
             <div class="form-group">
                 <label for="title">Title</label>
-                <input id="title" name="title" class="form-control" type="text">
+                <input id="title" name="title" class="form-control" type="text" required>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea id="description" name="description" class="form-control" type="text"></textarea>
+                <textarea id="description" name="description" class="form-control" type="text" required></textarea>
             </div>
             <div class="form-group">
-                <input type="checkbox" id="pet" name="categories" value="Pet">
+                <input type="checkbox" id="pet" name="categories" value="1">
                 <label for="Pet"> Pet </label><br>
-                <input type="checkbox" id="animal" name="categories" value="Animal">
+                <input type="checkbox" id="animal" name="categories" value="2">
                 <label for="Animal"> Animal </label><br>
-                <input type="checkbox" id="dog" name="categories" value="Dog">
+                <input type="checkbox" id="dog" name="categories" value="3">
                 <label for="Dog"> Dog </label><br>
-                <input type="checkbox" id="tool" name="categories" value="Tool">
+                <input type="checkbox" id="tool" name="categories" value="4">
                 <label for="Tool"> Tool </label><br>
-                <input type="checkbox" id="truck" name="categories" value="Truck">
+                <input type="checkbox" id="truck" name="categories" value="5">
                 <label for="Truck"> Truck </label><br>
-                <input type="checkbox" id="car" name="categories" value="Car">
+                <input type="checkbox" id="car" name="categories" value="6">
                 <label for="Car"> Car </label><br>
-                <input type="checkbox" id="furniture" name="categories" value="Furniture">
+                <input type="checkbox" id="furniture" name="categories" value="7">
                 <label for="Furniture"> Furniture </label><br>
             </div>
             <input type="submit" class="btn btn-block btn-primary">

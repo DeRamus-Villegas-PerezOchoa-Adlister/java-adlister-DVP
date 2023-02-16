@@ -1,57 +1,33 @@
-# Adlister Project
+# Air Flea Market (Adlister Project)
 
-This is the project that we will be going through in the latter part of the Java
-curriculum.
+Air Flea Market is an application that allows a user to view, search and create online private-part sale ads.  
 
-This repository contains various
-[tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging) that correspond to
-each lesson we will cover.
+Environment: HTML, mySQL, Java, JSP, Servlets, ...
 
-## Setup and Workflow
+## Initial Setup:
 
-1. Fork this repository to your GitHub account.
+1. Created a Github organization and added teammates.
+2. Forked this repository (https://github.com/gocodeup/java-adlister , Click on the "Fork" button on the top right of this page) and selected the new organization as a destination.
+3. Cloned the forked repository from the organization.
+4. Read through the code to understand the existing code structure before starting to build the features.
+5. Utilized a local Tomcat server and updated the POM.xml to reflect the current verion.
+6. Installed mySql and migrate the following tables (users, ads, ad_cat (optional) and categories (optional).
+7. Ran the application to ensure baseline functionality worked before attempting to add features.
 
-1. Clone this repository.
+## Added Features:
 
-As we progress through the java lessons, for each exercise you should:
+- Logged in users can view their profile
 
-0. Make sure all of your previous work is committed, and your working directory
-   is clean.
+- CRUD features for users and ads
 
-    ```
-    git status
-    ```
+- Ad searching implemented
 
-    This is good practice in general before manipulating a git repository
+- Nav bar changes based on user login / logout session attribute
 
-1. Checkout the corresponding tag
+- Ad show/details page
 
-    For example:
+- Error messages
 
-    ```
-    git checkout servlets
-    ```
+- Project consistently styled and uses a grid layout
 
-1. Create and switch to a new branch for your work on the exercise
-
-For example:
-
-    ```
-    git branch servlets-exercise
-    git checkout servlets-exercise
-    ```
-
-    **It is very important that you create and switch to a new branch here, if
-    you do not, your work and commits could be lost!**
-
-    At this point, you could merge your previous work into the current branch,
-    or start "fresh" from the branch you just created
-
-1. Add and commit as you work your way through the exercise
-
-1. Push your branch
-
-1. (Optionally) Check out the tag containing the solution for the exercise
-
-    All of the tags that correspond to each exercise also have a tag suffixed
-    with `-solution`
+- Code documented with a README and comments

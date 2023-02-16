@@ -3,11 +3,12 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
+            <a class="navbar-brand">Adlister</a>
         </div>
         <div class="nav navbar-nav navbar-right">
             <c:choose>
                 <c:when test="${sessionScope.user == null}">
+                    <li><a href="/ads">View All Ads</a></li>
                     <li>
                         <form class="form-inline" action="/search_ads" method="POST">
                             <label for="searched_ads"></label>
@@ -19,6 +20,7 @@
                     <li><a href="/register">Register</a></li>
                 </c:when>
                 <c:otherwise>
+                    <li><a href="/ads">View All Ads</a></li>
                     <li><a href="/ads/create">Create Ad</a></li>
                     <li>
                         <form class="form-inline" action="/search_ads" method="POST">

@@ -14,10 +14,12 @@
         <h2>Here are your postings:</h2>
 
         <c:forEach var="ad" items="${ads2}">
-            <div class="col-md-6">
-                <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
-            </div>
+            <a href="${pageContext.request.contextPath}/adshow/?adId=${ad.id}">
+                <div class="col-md-6">
+                    <h2>${ad.title}</h2>
+                    <p>${ad.description}</p>
+                </div>
+            </a>
         </c:forEach>
     </div>
 

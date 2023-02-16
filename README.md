@@ -1,4 +1,4 @@
-# Air Swap and Meet (Adlister Project)
+# Air Swap Meet (Adlister Project)
 
 Air Swap and Meet is an application that allows a user to view, search and create online private-party sale ads.  
 

@@ -1,6 +1,7 @@
 package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
+import com.codeup.adlister.models.User;
 import com.mysql.cj.jdbc.Driver;
 
 import java.sql.*;
@@ -35,17 +36,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-    //    Note:  Added for categories task/EV
-//    public List<Ad> selectAllCat() {
-//        PreparedStatement stmt = null;
-//        try {
-//            stmt = connection.prepareStatement("SELECT name FROM categories");
-//            ResultSet rs = stmt.executeQuery();
-//            return createAdsFromResults(rs);
-//        } catch (SQLException e) {
-//            throw new RuntimeException("Error retrieving all categories.", e);
-//        }
-//    }
 
     @Override
     public Long insert(Ad ad) {
@@ -77,6 +67,21 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+
+    public List<Ad> findAdByUserName(String username) {
+        System.out.println("id = " + username);
+        String query = "SELECT * from ads WHERE user_id IN (SELECT id from users WHERE username LIKE ?)";
+        try{
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, username);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            return createAdsFromResults(rs);
+        } catch (SQLException e){
+            throw new RuntimeException("Error getting ad by Id", e);
+        }
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
@@ -94,6 +99,7 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
+
     @Override
     public List<Ad> searchForAds(String searched_ad) {
         String query = "SELECT * FROM ads WHERE title LIKE ?";
@@ -106,6 +112,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error finding a Ad by Title", e);
         }
     }
+
+
 
     @Override
     public boolean delete(long id) {
@@ -121,4 +129,8 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error deleting an ad.", e);
         }
     }
+
+
+
+
 }

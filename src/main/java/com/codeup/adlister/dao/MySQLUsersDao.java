@@ -12,9 +12,9 @@ public class MySQLUsersDao implements Users {
         try {
             DriverManager.registerDriver(new Driver());
             connection = DriverManager.getConnection(
-                config.getUrl(),
-                config.getUser(),
-                config.getPassword()
+                    config.getUrl(),
+                    config.getUser(),
+                    config.getPassword()
             );
         } catch (SQLException e) {
             throw new RuntimeException("Error connecting to the database!", e);
@@ -33,6 +33,7 @@ public class MySQLUsersDao implements Users {
             throw new RuntimeException("Error finding a user by username", e);
         }
     }
+
     @Override
     public User findUserById(int userId) {
         String query = "SELECT * FROM users WHERE id = ?";
@@ -60,23 +61,39 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
         }
-
-
     }
-//    catch (SQLException e) {
-//        throw new RuntimeException("Error creating new user", e);
-//    }
+
 
     private User extractUser(ResultSet rs) throws SQLException {
-        if (! rs.next()) {
+        if (!rs.next()) {
             return null;
         }
         return new User(
-            rs.getLong("id"),
-            rs.getString("username"),
-            rs.getString("email"),
-            rs.getString("password")
+                rs.getLong("id"),
+                rs.getString("username"),
+                rs.getString("email"),
+                rs.getString("password")
         );
     }
+
+    public void updateUser(User user) throws SQLException {
+        String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, user.getUsername());
+        statement.setString(2, user.getEmail());
+        statement.setString(3, user.getPassword());
+        statement.setLong(4, user.getId());
+        statement.executeUpdate();
+    }
+
+    @Override
+    public void deleteUserById(long id) throws SQLException {
+        String query = "DELETE FROM users WHERE id = ?";
+        PreparedStatement ps;
+        ps = connection.prepareStatement(query);
+        ps.setLong(1, id);
+        ps.executeUpdate();
+    }
+
 
 }

@@ -1,6 +1,6 @@
-# Air Flea Market (Adlister Project)
+# Air Swap Meet (Adlister Project)
 
-Air Flea Market is an application that allows a user to view, search and create online private-party sale ads.  
+Air Swap Meet is an application that allows a user to view, search and create online private-party sale ads.  
 
 Environment: HTML, mySQL, Java, JSP, Servlets, ...
 

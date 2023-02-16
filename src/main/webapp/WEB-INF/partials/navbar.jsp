@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -5,16 +6,31 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
         <div class="nav navbar-nav navbar-right">
-            <li><form class="form-inline" action="/search_ads" method="POST">
-                <label for="searched_ads"></label>
-                <input type="text" name="searched_ads" id="searched_ads" placeholder="">
-                <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>
-            </form></li>
-            <div class="nav navbar-nav navbar">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Login</a></li>
-            <li><a href="/logout">Logout</a></li>
-        </ul>
-    </div><!-- /.navbar-collapse -->
+            <c:choose>
+                <c:when test="${sessionScope.user == null}">
+                    <li>
+                        <form class="form-inline" action="/search_ads" method="POST">
+                            <label for="searched_ads"></label>
+                            <input type="text" name="searched_ads" id="searched_ads" placeholder="Search Ads">
+                            <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>
+                        </form>
+                    </li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">Register</a></li>
+                </c:when>
+                <c:otherwise>
+                    <li><a href="/ads/create">Create Ad</a></li>
+                    <li>
+                        <form class="form-inline" action="/search_ads" method="POST">
+                            <label for="searched_ads"></label>
+                            <input type="text" name="searched_ads" id="searched_ads" placeholder="Search Ads">
+                            <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>
+                        </form>
+                    </li>
+                    <li><a href="/profile">My Profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </c:otherwise>
+            </c:choose>
+        </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>

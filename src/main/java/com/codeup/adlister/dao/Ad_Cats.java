@@ -11,4 +11,6 @@ public interface Ad_Cats {
     // insert a new ad and return the new ad's id
     void insert(long id, long cat);
 
+    List<Ad> searchByCats(String catCheckBox);
+
 }

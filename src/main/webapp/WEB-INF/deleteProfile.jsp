@@ -19,7 +19,7 @@
   <h1>Delete Profile</h1>
   <p>Are you sure you want to delete your profile and ads.</p>
   <form action="${pageContext.request.contextPath}/delete-profile" method="post">
-    <button type="submit" name="deleteId" value="${user.id}" class="btn btn-block btn-danger">Delete</button>
+    <button type="submit" name="delete" value="${user.id}" class="btn btn-block btn-danger">Delete</button>
   </form>
 </div>
 </body>

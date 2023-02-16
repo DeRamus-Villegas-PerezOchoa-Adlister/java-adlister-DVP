@@ -33,7 +33,7 @@
       <label for="password">New Password</label>
       <input id="password" name="password" class="form-control" type="text" required>
     </div>
-    <button type="submit" name="editedId" value="${user.id}" class="btn btn-block btn-primary">Submit Edits</button>
+    <button type="submit" name="edit" value="${user.id}" class="btn btn-block btn-primary">Submit Edits</button>
   </form>
 </div>
 

@@ -1,6 +1,6 @@
-# Air Swap n Meet (Adlister Project)
+# Air Swap and Meet (Adlister Project)
 
-Air Swap n Meet is an application that allows a user to view, search and create online private-party sale ads.  
+Air Swap and Meet is an application that allows a user to view, search and create online private-party sale ads.  
 
 Environment: HTML, mySQL, Java, JSP, Servlets, ...
 

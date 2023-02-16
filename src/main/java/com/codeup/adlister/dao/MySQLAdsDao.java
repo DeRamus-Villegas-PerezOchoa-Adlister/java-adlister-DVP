@@ -99,6 +99,7 @@ public class MySQLAdsDao implements Ads {
         return ads;
     }
 
+
     @Override
     public List<Ad> searchForAds(String searched_ad) {
         String query = "SELECT * FROM ads WHERE title LIKE ?";

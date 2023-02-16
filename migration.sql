@@ -8,7 +8,7 @@ DROP TABLE IF EXISTS ad_category;
 
 CREATE TABLE users (
                        id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-                       username VARCHAR(240) NOT NULL,
+                       username VARCHAR(240) NOT NULL UNIQUE ,
                        email VARCHAR(240) NOT NULL,
                        password VARCHAR(255) NOT NULL,
                        PRIMARY KEY (id)
@@ -37,6 +37,8 @@ CREATE TABLE ad_category (
                              category_id INTEGER UNSIGNED NOT NULL,
                              FOREIGN KEY (ad_id) REFERENCES ads(id),
                              FOREIGN KEY (category_id) REFERENCES categories(id)
+                                 ON DELETE CASCADE
 );
+
 
 

@@ -78,21 +78,20 @@ public class MySQLUsersDao implements Users {
 
     public void updateUser(User user) throws SQLException {
         String query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
-        PreparedStatement statement = connection.prepareStatement(query);
-        statement.setString(1, user.getUsername());
-        statement.setString(2, user.getEmail());
-        statement.setString(3, user.getPassword());
-        statement.setLong(4, user.getId());
-        statement.executeUpdate();
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, user.getUsername());
+        stmt.setString(2, user.getEmail());
+        stmt.setString(3, user.getPassword());
+        stmt.setLong(4, user.getId());
+        stmt.executeUpdate();
     }
 
     @Override
     public void deleteUserById(long id) throws SQLException {
         String query = "DELETE FROM users WHERE id = ?";
-        PreparedStatement ps;
-        ps = connection.prepareStatement(query);
-        ps.setLong(1, id);
-        ps.executeUpdate();
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setLong(1, id);
+        stmt.executeUpdate();
     }
 
 

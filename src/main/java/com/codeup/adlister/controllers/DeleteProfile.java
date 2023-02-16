@@ -14,18 +14,18 @@ import java.sql.SQLException;
 @WebServlet(name = "DeleteProfile", urlPatterns = "/delete-profile")
 public class DeleteProfile extends HttpServlet {
 
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute("user");
 
 		if (req.getSession().getAttribute("user") == null) {
-            resp.sendRedirect("/");
+            resp.sendRedirect("/login");
     } else {
         req.setAttribute("user", user);
-        req.getRequestDispatcher("/WEB-INF/users/delete-profile.jsp").forward(req,resp);
+        req.getRequestDispatcher("/WEB-INF/deleteProfile.jsp").forward(req,resp);
     }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = (User) request.getSession().getAttribute("user");
 
         try {
@@ -36,7 +36,7 @@ public class DeleteProfile extends HttpServlet {
 
         request.getSession().removeAttribute("user");
         request.getSession().invalidate();
-        response.sendRedirect("/");
+        response.sendRedirect("/ads");
 
     }
 

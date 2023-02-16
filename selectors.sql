@@ -14,7 +14,7 @@ USE adlister_db;
 
 # SELECT * from ads WHERE user_id IN (SELECT id from users WHERE username = 'hashisthepass');
 
-# DELETE FROM users WHERE id = 3;
+DELETE FROM users WHERE id = 3;
 #
 # DELIMITER $$
 # CREATE TRIGGER before_users_delete

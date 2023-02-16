@@ -7,7 +7,7 @@ Environment: HTML, mySQL, Java, JSP, Servlets, ...
 ## Initial Setup:
 
 1. Created a Github organization and added teammates.
-2. Forked this repository (https://github.com/gocodeup/java-adlister , Click on the "Fork" button on the top right of this page) and selected the new organization as a destination.
+2. Forked this repository (https://github.com/gocodeup/java-adlister , Click on the "Fork" button on the top right of the linked page) and selected the new organization as a destination.
 3. Cloned the forked repository from the organization.
 4. Read through the code to understand the existing code structure before starting to build the features.
 5. Utilized a local Tomcat server and updated the POM.xml to reflect the current verion.

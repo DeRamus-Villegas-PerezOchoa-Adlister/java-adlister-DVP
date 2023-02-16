@@ -13,6 +13,7 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setAttribute("inputHasErrors", request.getParameter("inputHasErrors") != null);
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
@@ -27,11 +28,14 @@ public class RegisterServlet extends HttpServlet {
             || email.isEmpty()
             || password.isEmpty()
             || (! password.equals(passwordConfirmation));
+        System.out.println(inputHasErrors);
 
         if (inputHasErrors) {
-            response.sendRedirect("/register");
+//            request.setAttribute("inputHasErrors", true);
+            response.sendRedirect("/register?inputHasErrors");
             return;
         }
+//        request.setAttribute("inputHasErrors", "test");
 
         // create and save a new user
         User user = new User(username, email, password);

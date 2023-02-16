@@ -22,6 +22,27 @@
     <div class="container">
         <h3>${ad.title}!</h3>
         <p>${ad.description}</p>
+        <h1>Edit Ad</h1>
+        <form action="/ads/edit" method="post">
+
+            <%--Hidden, but needed for the table request:--%>
+            <input id="id" name="id" type="hidden" value="${ad.id}">
+
+            <%--What is seen:--%>
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input id="title" name="title" class="form-control" type="text" value="${ad.title}">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="form-control" type="text">${ad.description}</textarea>
+            </div>
+            <input type="submit" class="btn btn-block btn-primary" value="Update Ad">
+        </form>
+<%--        added the delete button to delete ads--%>
+        <form action="/ads/delete?id=${ad.id}" method="post">
+            <input value="delete" type="submit" class="btn btn-block btn-primary">
+        </form>
     </div>
     <div class="container">
         <p>Posted by ${user.username}. Contact me about this item at: ${user.email}</p>

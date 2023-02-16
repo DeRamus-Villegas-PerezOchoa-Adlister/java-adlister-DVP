@@ -14,7 +14,7 @@ USE adlister_db;
 
 # SELECT * from ads WHERE user_id IN (SELECT id from users WHERE username = 'hashisthepass');
 
-DELETE FROM users WHERE id = 3;
+# DELETE FROM users WHERE id = 3;
 #
 # DELIMITER $$
 # CREATE TRIGGER before_users_delete
@@ -22,3 +22,5 @@ DELETE FROM users WHERE id = 3;
 #     delete from ads where user_id=3;
 # END$$
 # DELIMITER ;
+
+SELECT * FROM ads WHERE title LIKE '%last%' OR description LIKE '%last%';

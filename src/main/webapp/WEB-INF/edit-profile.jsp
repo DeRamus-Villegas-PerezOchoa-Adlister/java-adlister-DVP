@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
       <label for="password">New Password</label>
-      <input id="password" name="password" class="form-control" type="text" required>
+      <input id="password" name="password" class="form-control" type="password" required>
     </div>
     <button type="submit" name="edit" value="${user.id}" class="btn btn-block btn-primary">Submit Edits</button>
   </form>

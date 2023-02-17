@@ -113,8 +113,6 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
-
-
     @Override
     public boolean delete(long id) {
         try {
@@ -145,7 +143,5 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error replacing an ad.", e);
         }
     }
-
-
 
 }

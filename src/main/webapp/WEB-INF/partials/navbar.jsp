@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <a class="navbar-brand">Adlister</a>
+            <a class="navbar-brand">Air Swap Meet</a>
         </div>
         <div class="nav navbar-nav navbar-right">
             <c:choose>
@@ -11,8 +11,8 @@
                     <li><a href="/ads">View All Ads</a></li>
                     <li>
                         <form class="form-inline" action="/search_ads" method="POST">
-                            <label for="searched_ads"></label>
-                            <input type="text" name="searched_ads" id="searched_ads" placeholder="Search Ads">
+                            <label for="searched_ad1"></label>
+                            <input type="text" name="searched_ads" id="searched_ad1" placeholder="Search Ads">
                             <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>
                         </form>
                     </li>
@@ -24,8 +24,8 @@
                     <li><a href="/ads/create">Create Ad</a></li>
                     <li>
                         <form class="form-inline" action="/search_ads" method="POST">
-                            <label for="searched_ads"></label>
-                            <input type="text" name="searched_ads" id="searched_ads" placeholder="Search Ads">
+                            <label for="searched_ad2"></label>
+                            <input type="text" name="searched_ads" id="searched_ad2" placeholder="Search Ads">
                             <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>
                         </form>
                     </li>

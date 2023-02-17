@@ -10,7 +10,7 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
+    <h1>All the Ads!</h1>
 <%--Your ads index page should contain links to each individual ad page.--%>
     <c:forEach var="ad" items="${ads}">
         <a href="${pageContext.request.contextPath}/adshow/?adId=${ad.id}">

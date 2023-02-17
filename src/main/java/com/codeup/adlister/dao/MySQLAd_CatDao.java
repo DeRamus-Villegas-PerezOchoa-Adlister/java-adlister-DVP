@@ -28,33 +28,24 @@ public class MySQLAd_CatDao implements Ad_Cats {
         }
     }
 
-
     @Override
     public List<Ad> all() {
         return null;
     }
 
-    //Note:  Commented out code may or may not be needed to return ad id.
     @Override
     public void insert(long ad_id, long ad_cat) {
-        System.out.println("ad_id passed argument = " + ad_id);
-        System.out.println("ad_cat = " + ad_cat);
+
         try {
             String insertQuery = "INSERT INTO ad_category(ad_id, category_id) VALUES (?, ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad_id);
             stmt.setLong(2, ad_cat);
             stmt.executeUpdate();
-//            ResultSet rs = stmt.getGeneratedKeys();
-//            rs.next();
-//            return rs.getLong(1);
         } catch (SQLException e) {
             throw new RuntimeException("Error creating a new ad_cat.", e);
         }
     }
-
-
-
 
     public List<Ad> searchByCats(String catCheckBox) {
         String query = "SELECT * FROM ads WHERE id IN (SELECT ad_id FROM ad_category WHERE category_id IN (SELECT id FROM categories WHERE name LIKE ?))";
@@ -69,7 +60,6 @@ public class MySQLAd_CatDao implements Ad_Cats {
         }
     }
 
-
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
@@ -79,7 +69,6 @@ public class MySQLAd_CatDao implements Ad_Cats {
         return ads;
     }
 
-
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
                 rs.getLong("id"),
@@ -88,7 +77,5 @@ public class MySQLAd_CatDao implements Ad_Cats {
                 rs.getString("description")
         );
     }
-
-
 
 }

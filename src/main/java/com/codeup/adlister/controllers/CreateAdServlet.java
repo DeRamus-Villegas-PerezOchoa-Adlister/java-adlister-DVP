@@ -29,34 +29,15 @@ public class CreateAdServlet extends HttpServlet {
         User user = (User) request.getSession().getAttribute("user");
         String[] catCheckBox = request.getParameterValues("categories");
 
-//        for (String checkBox : catCheckBox) {
-//            System.out.println("catCheckBox[i] under declaration = " + checkBox);
-//        }
-
         Ad ad = new Ad(
             user.getId(),
             request.getParameter("title"),
             request.getParameter("description")
         );
 
-//        System.out.println("user.getId() = " + user.getId());
-//        System.out.println("ad.getId() = " + ad.getId());
-//        System.out.println("ad.getTitle() = " + ad.getTitle());
-//        System.out.println("ad.getDescription() = " + ad.getDescription());
-
         long adId = DaoFactory.getAdsDao().insert(ad);
-        System.out.println("adId = " + adId);
-
-        System.out.println("ad.getId() Above for loop = " + ad.getId());
-
 
         Ad_Cats getAdCatsDao = DaoFactory.getAd_CatsDao();
-
-        for (String checkBox : catCheckBox) {
-            System.out.println("catCheckBox[i] = " + checkBox);
-            System.out.println("adId = " + adId);
-            DaoFactory.getAd_CatsDao().insert(adId, Long.parseLong(checkBox));
-        }
 
         for (String checkBox : catCheckBox) {
             System.out.println("catCheckBox[i] = " + checkBox);

@@ -11,6 +11,10 @@
 
     <div class="container">
         <h1>Welcome, ${sessionScope.user.username}!</h1>
+        <div>
+            <a href="/profile-edit">Edit Profile</a><br>
+            <a href="/delete-profile">Delete Profile</a><br>
+        </div>
         <h2>Here are your postings:</h2>
 
         <c:forEach var="ad" items="${ads2}">

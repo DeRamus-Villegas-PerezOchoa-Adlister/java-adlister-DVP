@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-// Consider passing the id of the ad as a parameter in the GET request to this page.
 
 @WebServlet(name = "AdShowServlet", urlPatterns = "/adshow/*")
 public class AdShowServlet extends HttpServlet {
@@ -32,9 +31,7 @@ public class AdShowServlet extends HttpServlet {
         } catch (SQLException e){
             e.printStackTrace();
         }
-
         req.getRequestDispatcher("/WEB-INF/ads/adShow.jsp").forward(req,resp);
 
     }
-
 }

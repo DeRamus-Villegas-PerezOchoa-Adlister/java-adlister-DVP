@@ -31,11 +31,9 @@ public class RegisterServlet extends HttpServlet {
         System.out.println(inputHasErrors);
 
         if (inputHasErrors) {
-//            request.setAttribute("inputHasErrors", true);
             response.sendRedirect("/register?inputHasErrors");
             return;
         }
-//        request.setAttribute("inputHasErrors", "test");
 
         // create and save a new user
         User user = new User(username, email, password);

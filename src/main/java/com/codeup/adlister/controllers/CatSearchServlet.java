@@ -19,19 +19,15 @@ public class CatSearchServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-//        String catCheckBox = request.getParameterValues("categories");
+        String[] catCheckBox = request.getParameterValues("categories");
 
-//        for (String checkBox : catCheckBox) {
-//            System.out.println("catCheckBox[i] under declaration = " + checkBox);
-//        }
+        for (String checkBox : catCheckBox) {
+            System.out.println("checkBox = " + checkBox);
+            DaoFactory.getAd_CatsDao().searchByCats(checkBox);
+            request.setAttribute("checkBox", DaoFactory.getAd_CatsDao().searchByCats(checkBox));
+        }
 
-//        for (String checkBox : catCheckBox) {
-//            System.out.println("checkBox = " + checkBox);
-//            DaoFactory.getAd_CatsDao().searchByCats(checkBox);
-//            request.setAttribute("checkBox", DaoFactory.getAd_CatsDao().searchByCats(checkBox));
-//        }
-
-//        request.setAttribute("catCheckBox", DaoFactory.getAd_CatsDao().searchByCats(catCheckBox));
         request.getRequestDispatcher("/WEB-INF/catSearch.jsp").forward(request, response);
+
     }
 }

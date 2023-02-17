@@ -10,7 +10,7 @@
                 <c:when test="${sessionScope.user == null}">
                     <li><a href="/ads">View All Ads</a></li>
                     <li>
-                        <form class="form-inline" action="/search_ads" method="POST">
+                        <form class="d-flex align-self-center" action="/search_ads" method="POST">
                             <label for="searched_ad1"></label>
                             <input type="text" name="searched_ads" id="searched_ad1" placeholder="Search Ads">
                             <button class="btn btn-info my-2 my-sm-0" type="submit">Find</button>

@@ -2,6 +2,5 @@
 target/
 .idea/
 Config.java
-seeder.sql
 selectors.sql
 

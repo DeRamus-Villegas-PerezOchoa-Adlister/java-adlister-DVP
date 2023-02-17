@@ -35,7 +35,7 @@ CREATE TABLE categories
 CREATE TABLE ad_category (
                              ad_id INTEGER UNSIGNED NOT NULL,
                              category_id INTEGER UNSIGNED NOT NULL,
-                             FOREIGN KEY (ad_id) REFERENCES ads(id),
+                             FOREIGN KEY (ad_id) REFERENCES ads(id) ON DELETE CASCADE,
                              FOREIGN KEY (category_id) REFERENCES categories(id)
                                  ON DELETE CASCADE
 );

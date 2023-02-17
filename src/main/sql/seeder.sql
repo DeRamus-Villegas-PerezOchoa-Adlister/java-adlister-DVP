@@ -7,6 +7,9 @@ TRUNCATE ad_category;
 
 
 INSERT INTO users(username, email, password) VALUES
+                                                 ('joe', 'joe@gmail', '11dszd1'),
+                                                 ('moe', 'moe@gmail', '234ed4'),
+                                                 ('sally', 'sally@gmail', '42fss');
 
 
 
